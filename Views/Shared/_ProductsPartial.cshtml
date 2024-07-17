@@ -1,0 +1,51 @@
+﻿@model List<ProductModel>
+
+<!-- Product Section Begin -->
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="section-title">
+                    <h4>ONE CIKANLAR</h4>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5">
+                <ul class="filter__controls">
+                </ul>
+            </div>
+        </div>
+        <div class="row property__gallery">
+
+            @foreach (var product in Model)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="http://localhost:5000/images/products/@product.ImageUrl">
+                            <div class="label new">YENI</div>
+                            <ul class="product__hover">
+                                <li><a href="http://localhost:5000/images/products/@product.ImageUrl" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                                <li><a asp-controller="User" asp-action="Index"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+
+
+                        <div class="product__item__text">
+                            <h6><a href="#">@product.Name</a></h6>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+
+                            </div>
+                            <div class="product__price">@product.Price</div>
+                            <a href=" http://localhost:5000/images/products/@product.ImageUrl"></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            }
+
+        </div>
+    </div>
+</section>
+<!-- Product Section End -->

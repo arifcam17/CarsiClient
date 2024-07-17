@@ -1,0 +1,72 @@
+﻿@model AddProduct
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>URUNLER</h1>
+                </div>
+                <div iv class="col-sm-6 d-flex justify-content-end">
+                    <a asp-area="Admin"
+                       asp-controller="Product"
+                       asp-action="Create" class="btn btn-primary btn-sm">Kaydet</a>
+                </div>
+
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Main row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-9"> temel urun</div>
+                                <div class="col-md-3">
+                                    <div>
+                                        <div class="form-group">
+                                            <label>Select</label>
+                                            <select  class="form-control">
+                                                <option>option 1</option>
+                                                <option>option 2</option>
+                                                <option>option 3</option>
+                                                <option>option 4</option>
+                                                <option>option 5</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="checkboxPrimary1" checked>
+                                                <label for="checkboxPrimary1">
+                                                </label>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+@section Css{
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+}

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CARSI ADMIN</title>
+
+    
+    @await Html.PartialAsync("_StylesPartial")
+
+    @RenderSection("Css", false)
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+        </div>
+
+        @await Html.PartialAsync("_SidebarPartial")
+
+        @await Html.PartialAsync("_SidebarPartial")    
+  
+        @RenderBody()
+
+        <footer class="main-footer">
+            <strong> 06/2024 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.2.0
+            </div>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+ 
+    
+    @await Html.PartialAsync("_ScriptPartial")
+
+      @RenderSection("Js",false)
+</body>
+</html>

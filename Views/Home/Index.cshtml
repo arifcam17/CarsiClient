@@ -1,0 +1,40 @@
+﻿@model HomePageModel
+
+
+@await Html.PartialAsync("_CategoriesPartial", Model.Products)
+
+
+
+
+@await Html.PartialAsync("_ProductsPartial", Model.Products)
+
+
+
+
+@await Html.PartialAsync("_TrendPartial", Model.Products)
+
+<!-- Services Section Begin -->
+<section class="services spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-car"></i>
+                    <h6>UCRETSIZ GONDERIM</h6>
+                    <p>250 TL VE UZERI ALISVERISLERINIZE</p>
+                </div>
+            </div>
+          
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-support"></i>
+                    <h6>ONLINE DESTEK HATTI</h6>
+                    <p>7/24</p>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</section>
+<!-- Services Section End -->
+

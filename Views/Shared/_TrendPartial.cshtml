@@ -1,0 +1,38 @@
+﻿@model List<ProductModel>
+
+<!-- Trend Section Begin -->
+<section class="trend spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4>COK SATANLAR</h4>
+                    </div>
+                    @foreach (var item in Model)
+                    {
+                        <div class="trend__item">
+                            <div class="trend__item__pic">
+                                <img src="http://localhost:5000/images/products/@item.ImageUrl" alt="http://localhost:5000/images/products/@item.ImageUrl">
+                            </div>
+                            <div class="trend__item__text">
+                                <h6> @item.Name</h6>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product__price"> @item.Price</div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Trend Section End -->

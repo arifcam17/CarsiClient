@@ -1,0 +1,88 @@
+﻿@model List<Product>
+
+
+      <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>URUNLER</h1>
+                </div>
+                     <div iv class="col-sm-6 d-flex justify-content-end">
+                         <a asp-area="Admin" 
+                         asp-controller="Product" 
+                         asp-action="Create" class="btn btn-primary btn-sm">Yeni urun</a>
+                     </div>
+               
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Main row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card"> 
+                        <div class="card-body">
+                            <table id="data-table" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>AD</th>
+                                        <th>FOTO</th>
+                                        <th>STOK</th>
+                                        <th>FIYAT</th>
+                                        <th>DURUM</th>
+                                        <th>ANA SAYFA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var product in Model)
+                                    {
+                                        <tr>
+                                            <td>@product.Id</td>
+                                            <td>@product.Name</td>
+                                            <td> <img src="http://localhost:5000/images/products/@product.ImageUrl" width="25" /> </td>
+                                            <td>@product.Price</td>
+                                            <td>@product.Stock</td>
+                                            <td>@product.IsActive</td>
+                                            <td>@product.IsHome</td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                                
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+@section Css{
+
+    @await Html.PartialAsync("_DataTableCssPartial")
+   
+
+}
+
+
+@section Js{
+
+    @await Html.PartialAsync("_DataTableJsPartial")
+
+}
+
+
