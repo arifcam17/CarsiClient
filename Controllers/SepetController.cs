@@ -25,9 +25,7 @@ namespace CarsiClient.Controllers
                 }
             }
 
-
-           
-
+             
             return View(rootProducts.Data);
         }
     

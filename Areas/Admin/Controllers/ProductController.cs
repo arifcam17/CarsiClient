@@ -34,8 +34,9 @@ namespace CarsiClient.Areas.Admin.Controllers
         {
             
 
-            var rootProducts = new Root<List<Product>>();
-            var rootUser = new Root<List<User>>();
+           
+            var rootProduct = new Root<List<Product>>();
+            
             using (var httpClient = new HttpClient())
             {
                 using (HttpResponseMessage httpResponseMessage = await httpClient.GetAsync("http://localhost:5000/api/Product"))
@@ -45,12 +46,13 @@ namespace CarsiClient.Areas.Admin.Controllers
                         return null;
                     }
                     string contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
-                    rootProducts = JsonSerializer.Deserialize<Root<List<Product>>>(contentResponse);
+                    rootProduct = JsonSerializer.Deserialize<Root<List<Product>>>(contentResponse);
                 }
             }
-            AddProduct addProduct = new AddProduct();
 
-            return View(addProduct);
+          
+
+            return View(rootProduct.Data);
         }
 
         public IActionResult Delete()

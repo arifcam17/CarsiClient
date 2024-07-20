@@ -5,30 +5,30 @@ namespace CarsiClient.Areas.Admin.Models
 {
     public class AddProduct
     {
-        [JsonPropertyName("id")]
+        [JsonPropertyName("Id")]
         public int Id { get; set; }
 
       
 
-        [JsonPropertyName("isActive")]
+        [JsonPropertyName("IsActive")]
         public bool IsActive { get; set; }
 
-        [JsonPropertyName("name")]
+        [JsonPropertyName("Name")]
         public string Name { get; set; }
 
-        [JsonPropertyName("isHome")]
+        [JsonPropertyName("IsHome")]
         public bool IsHome { get; set; }
 
-        [JsonPropertyName("stock")]
+        [JsonPropertyName("Stock")]
         public int Stock { get; set; }
 
-        [JsonPropertyName("price")]
+        [JsonPropertyName("Price")]
         public decimal Price { get; set; }
 
-        [JsonPropertyName("description")]
+        [JsonPropertyName("Description")]
         public string Description { get; set; }
 
-        [JsonPropertyName("imageUrl")]
+        [JsonPropertyName("ImageUrl")]
         public string ImageUrl { get; set; }
 
       

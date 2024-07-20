@@ -1,4 +1,4 @@
-﻿@model AddProduct
+﻿@model List<Product>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -42,12 +42,20 @@
                                             </select>
                                         </div>
                                         <div>
+                                            @foreach( var product in Model)
+                                            {
+                                                <div class="icheck-primary d-inline">
+                                                    <input type="checkbox"
+                                                        id="checkboxPrimary1 @product.Id" name="ProductIds"
+                                                        value="@product.Id" />
+                                                        
+                                                        
+                                                    <label for="checkboxPrimary1 @product.Id"> 
+                                                        @product.Name
+                                                    </label>
+                                                </div>
+                                            }
                                             
-                                            <div class="icheck-primary d-inline">
-                                                <input type="checkbox" id="checkboxPrimary1" checked>
-                                                <label for="checkboxPrimary1">
-                                                </label>
-                                            </div>
                                            
                                         </div>
                                     </div>
