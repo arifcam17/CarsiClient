@@ -1,11 +1,12 @@
-﻿  <!-- Breadcrumb Begin -->
+﻿@model UserModel 
+ 
+<!-- Breadcrumb Begin -->
 <div class="breadcrumb-option">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb__links">
                     <a href="./index.html"><i class="fa fa-home"></i> KAYIT ISLEMLERI</a>
-
                 </div>
             </div>
         </div>
@@ -17,66 +18,55 @@
     <div class="container">
         <div class="row">
         </div>
-        <form action="#" class="checkout__form">
+        <form asp-action="Create" asp-controller="User" method="post" class="checkout__form">
             <div class="row">
                 <div class="col-lg-8">
                     <h5>KISISEL BILGILER</h5>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="checkout__form__input">
-                                <p>AD <span>*</span></p>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="checkout__form__input">
-                                <p>SOYAD <span>*</span></p>
-                                <input type="text">
+                                <p>AD SOYAD <span>*</span></p>
+                                <label asp-for="Name"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name"></span>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="checkout__form__input">
-                                <p> e-mail <span>*</span></p>
-                                <input type="text">
+                                <p>e-mail <span>*</span></p>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email"></span>
                             </div>
                             <div class="checkout__form__input">
-                                <p> SIFRE <span>*</span></p>
-                                <input type="text">
+                                <p>SIFRE <span>*</span></p>
+                                <input asp-for="Password" type="password" class="form-control" />
+                                <span asp-validation-for="Password"></span>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>TEL NO <span>*</span></p>
-                                    <input type="text">
+                                    <input asp-for="Id" class="form-control" />
+                                    <span asp-validation-for="Id"></span>
                                 </div>
                             </div>
-
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-sm-6">
                         </div>
                         <div class="col-lg-12">
-                            <div class="checkout__form__checkbox">
-                                <label for="acc">
-                                    Kayit Izni
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <p>Kisisel verilerimin kaydeilmesine izin veriyorum</p>
-                            </div>
+                            <div>
 
-                            <div class="checkout__form__checkbox">
-                                <label for="note">
-                                    Bildirimlere izin ver
-                                    <input type="checkbox" id="note">
-                                    <span class="checkmark"></span>
-                                </label>
+                                <p>Kayit Izni</p>
+
+                               
                             </div>
-                            <a asp-controller="User" asp-action="Index" class="btn btn-primary btn-mid">KAYDI BITIR</a>
+                            <p>Kisisel verilerimin kaydedilmesine izin veriyorum</p>
+                            <div>
+                                
+                               
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-mid">KAYDI BITIR</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                </div>
+                <div class="col-lg-4"></div>
             </div>
         </form>
     </div>

@@ -28,7 +28,7 @@ namespace CarsiClient.Areas.Admin.Controllers
             return View(rootUser.Data);
         }
 
-        [HttpPost]
+        
         public async Task<IActionResult> Create() 
         {
             var rootUser = new Root<List<User>>();
@@ -46,6 +46,10 @@ namespace CarsiClient.Areas.Admin.Controllers
             }
             return View(rootUser.Data);
         }
+
+
+    
+
         [HttpDelete]
         public IActionResult Delete()
         {

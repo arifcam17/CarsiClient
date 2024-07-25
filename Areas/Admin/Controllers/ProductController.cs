@@ -1,7 +1,8 @@
 ﻿
 using CarsiClient.Areas.Admin.Models;
-
+using CarsiClient.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 using System.Text.Json;
 
 namespace CarsiClient.Areas.Admin.Controllers
@@ -50,9 +51,38 @@ namespace CarsiClient.Areas.Admin.Controllers
                 }
             }
 
-          
+            AddProduct product = new AddProduct
+            {
 
-            return View(rootProduct.Data);
+            };
+            
+
+            return View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(AddProduct product)
+        {
+            if (ModelState.IsValid)
+            {
+
+                using (var httpClient = new HttpClient())
+                {
+                    var content = new StringContent(JsonSerializer.Serialize(product), Encoding.UTF8, "application/json");
+                    var result = await httpClient.PostAsync("http://localhost:5000/api/Product", content);
+
+
+                    if (result.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction("Index");
+                    }
+
+
+                }
+
+            }   
+
+            return View(product);
         }
 
         public IActionResult Delete()

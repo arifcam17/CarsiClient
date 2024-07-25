@@ -4,7 +4,7 @@ namespace CarsiClient.Areas.Admin.Models
 {
     public class Product
     {
-        [JsonPropertyName("id")]
+        [JsonPropertyName("Id")]
         public int Id { get; set; }
 
       

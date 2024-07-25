@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using CarsiClient.Models;
@@ -53,12 +54,33 @@ public class UserController : Controller
             return RedirectToAction("Index", "User");
         } 
         
-    } 
+    }
 
-
-    public IActionResult Create()
+    [HttpPost]
+    public async Task<IActionResult> Create(UserModel user)
     {
-        return View();
+        var rootUser = new Root<UserModel>();
+        using (var httpClient = new HttpClient())
+        {
+            var content = new StringContent(JsonSerializer.Serialize(user), Encoding.UTF8, "application/json");
+
+            using (HttpResponseMessage httpResponseMessage = await httpClient.PostAsync("http://localhost:5000/api/User",content))
+            {
+                if (!httpResponseMessage.IsSuccessStatusCode) 
+                { return null; } 
+                string contentResponse =await httpResponseMessage.Content.ReadAsStringAsync();
+
+                rootUser = JsonSerializer.Deserialize<Root<UserModel>>(contentResponse);
+            }
+        }
+        if (rootUser.Data == null)
+        {
+            return RedirectToAction("Create", "User");
+        }
+        else
+        {
+            return View(rootUser.Data);
+        }
     }
 
 }
